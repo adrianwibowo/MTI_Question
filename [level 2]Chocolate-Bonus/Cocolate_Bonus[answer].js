@@ -1,9 +1,9 @@
 
-
+ let count,
+ result;
 
 const Bonus = (cokelat) => {
-    let count,
-        result;
+   
     try {
         if (count == undefined) {
             count = Math.floor(cokelat / 5)
@@ -35,7 +35,3 @@ test(Bonus(100), 124);
 test(Bonus(1000), 1249);
 test(Bonus(1234), 1539);
 
-// console.log(Bonus(60));
-// console.log(Bonus(100));
-// console.log(Bonus(1234));
-// console.log(Bonus(1000));
