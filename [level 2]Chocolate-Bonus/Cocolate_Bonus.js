@@ -1,6 +1,19 @@
 
+let temp = 0
 const Bonus = (cokelat) => {
-   // write your code here
+    let result = 0
+    if (cokelat >= 5) {
+        let bonus = Math.floor(cokelat / 5)
+        if (temp === 0) temp = cokelat + bonus
+        else if (temp >= 0) temp += bonus
+        if (bonus >= 5) return Bonus(bonus)
+        else if (bonus < 5) {
+            result = temp
+            temp = 0
+            return result
+        }
+    }
+
 };
 
 const test = (testCase, result) => {
