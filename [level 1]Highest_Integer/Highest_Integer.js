@@ -1,14 +1,32 @@
 const find = (input) => {
     //write your code here
+    let max,
+        result = ''
+        let arr = input.split(" ").map(x => +x)
+        max = Math.max(...arr)
+
+        for (let i = 0; i < arr.length; i++) {
+            if(arr[i] !== max && (i == arr.length - 1)) {
+                result += `${Math.min(...arr.filter(x => x > arr[i]))}`
+            }
+            else if (arr[i] !== max) {
+                result += `${Math.min(...arr.filter(x => x > arr[i]))} `
+            } 
+            else if(arr[i] == max && (i == arr.length - 1)) result += `^`
+            else { result += `^ ` }
+        }
+      
+        return result;
 }
 
 const test = (testCase, result) => {
+    console.log(`"${testCase}" , "${result}"`)
     if (testCase !== result) return console.log(false);
     return console.log(true);
 };
 
-test(find("10 9 2 5 1 2 4 0 56"),'56 10 4 9 2 4 5 1 ^ ')
-test(find("3 8 99 3 2 44 12"),'8 12 ^ 8 3 99 44')
+test(find("10 9 2 5 1 2 4 0 56"), '56 10 4 9 2 4 5 1 ^')
+test(find("3 8 99 3 2 44 12"), '8 12 ^ 8 3 99 44')
 
 
 
